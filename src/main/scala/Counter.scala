@@ -20,3 +20,12 @@ class Counter(size: Int) extends Module {
   io.out := r1
 }
 
+/**
+ * Main Object to create(emit) the verilog of the Counter Module
+ * Puts the verilog into a folder called "generated"
+ * Can be run from the sbt command line with: runMain CounterMain
+ */
+object CounterMain extends App {
+  emitVerilog(new Counter(2), Array("--target-dir", "generated"))
+}
+
